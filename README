@@ -1,0 +1,36 @@
+RUN:
+	python bit-codification.py
+
+RUN WITH ATRIBUTES
+	-m --model "codification" : The codification model used. 
+	-b --binarySequence "sequence": Put as 1s and 0s.
+	-h --help : Display the help interface, good option to se the MODELS implemented.
+
+EXAMPLE
+	python bit-codification.py -m pseudoternary
+	
+	python bit-codification.py -b 01111111110101010110101
+
+	python bit-codification.py -m psk -b 11101100101010000
+
+OBSERVATIONS
+	If dont use -m option, 'nrz-l' codification is default
+	If don use -b option, random sequence of 10 elements is the binarySequence
+	B8ZS and HDB3 by dont use a random sequence if non-given, to se the function with 8 zeros 
+	More information use --help
+	
+CODIFICATIONS
+	-nrz-l (NRZ-L: Noreturn to Zero-Level)
+	-nrzi (NRZI: Noreturn to Zero Inverted)
+	-bipolar-ami (Bipolar-AMI)
+	-pseudoternary (Pseudoternary)
+	-manchester (Manchester)
+	-differential-manchester (Differential Manchester)
+	-B8ZS (Bipolar 8 Zeros Substitution)
+	-HDB3 (High Density Bipolar 3 zeros)
+MODULATIONS
+	-ask (Amplitude-shift keying)
+	-fsk (Frequency-shift keying)
+	-psk (Phase-shift keying)
+
+IT IS POSIBLE IF YOU ARE RUNNING IT IN WINDOWS YOU DO NOT HAVE THE python MODE INSTALLED ON TERMINAL,IF YOU HAVE ANY PROBLEM SEE https://docs.python.org/3/faq/windows.html
